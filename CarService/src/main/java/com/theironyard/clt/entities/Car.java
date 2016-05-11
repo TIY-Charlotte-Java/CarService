@@ -1,6 +1,7 @@
 package com.theironyard.clt.entities;
 
 import javax.persistence.Entity;
+import java.util.HashMap;
 
 @Entity
 public class Car {
@@ -44,10 +45,12 @@ public class Car {
     public Car() {
     }
 
-    public Car(String title, Integer year, String image, Integer miles) {
+    public Car(String title, Integer year, String image) {
         this.title = title;
         this.year = year;
         this.image = image;
-        this.miles = miles;
+
     }
+
+
 }
