@@ -34,7 +34,15 @@ public class CarsRepository {
         carBase.add(new Car("Porche 911", 1971, "https://s-media-cache-ak0.pinimg.com/736x/06/b2/98/06b298a624efeca71269c2f957d018d9.jpg"));
         carBase.add(new Car("Jeep Wagoneer", 1981, "https://upload.wikimedia.org/wikipedia/commons/7/76/Jeep_Grand_Wagoneer_001.JPG"));
         carBase.add(new Car("Mazda RX-7", 1984, "https://upload.wikimedia.org/wikipedia/commons/8/80/1st_Mazda_RX-7_--_04-11-2012_2.JPG"));
-        
+        carBase.add(new Car("Moon 6-50", 1926, "http://www.conceptcarz.com/images/Moon/24-Moon-6-50_Touring_DV-07_AIA_01.jpg"));
+        carBase.add(new Car("Ford Pinto Wagon", 1977, "https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=0ahUKEwit3sXOzdLMAhUK_WMKHRIaAPoQjBwIBA&url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fen%2Fa%2Fa3%2F1977_Ford_Pinto_Cruising_Wagon.jpg&bvm=bv.121658157,d.cGc&psig=AFQjCNGWaO5U4SkOXJW2GVLfl16m3xjGmw&ust=1463076169098165"));
+        carBase.add(new Car("VW Thing", 1976, "https://static.cargurus.com/images/site/2009/12/03/09/08/1974_volkswagen_thing-pic-7140344829551562100-1600x1200.jpeg"));
+        carBase.add(new Car("Chevrolet El Camino", 1959, "http://www.59classicchevy.com/images/1959-chevrolet-El-Camino-3.jpg"));
+        carBase.add(new Car("Hudson Hornet", 1956, "http://bright-cars.com/uploads/hudson/hudson-hornet/hudson-hornet-06.jpg"));
+        carBase.add(new Car("Shelby Cobra Replica", 1958, "http://news.cdn.boldride.com/wp-content/uploads/2015/08/18035642/weineck-cobra-v8-angle.jpg"));
+        carBase.add(new Car("Jaguar MK V", 1952, "http://weddingcar.uk.com/images/classic%20cars/vech_1950s_mkv_large.jpg"));
+        carBase.add(new Car("DMC Delorean", 1975, "https://i.guim.co.uk/img/media/00632053338d2764fc06b35443ae4b69da0a98cc/0_91_3500_2099/master/3500.jpg?w=620&q=55&auto=format&usm=12&fit=max&s=00efe2d6abec48320885a599df32aace"));
+        carBase.add(new Car("Lincoln Continental Cabriolet", 1941, "https://i.guim.co.uk/img/media/00632053338d2764fc06b35443ae4b69da0a98cc/0_91_3500_2099/master/3500.jpg?w=620&q=55&auto=format&usm=12&fit=max&s=00efe2d6abec48320885a599df32aace"));
 
     }
 
@@ -42,7 +50,23 @@ public class CarsRepository {
 
 
 
-    public List<Car> getCars()
+    public List<Car> getCars() {
+
+        List<Car> results = new ArrayList<>();
+        while (results.size() <= 25) {
+            Integer i = randomWithRange(0,27);
+            Car car = carBase.get(i);
+            car.setMiles(randomWithRange(60000, 180001));
+            results.add(car);
+        }
+        return results;
+    }
+
+    int randomWithRange(int min, int max)
+    {
+        int range = (max - min) + 1;
+        return (int)(Math.random() * range) + min;
+    }
 
 
 }

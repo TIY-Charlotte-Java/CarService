@@ -8,18 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import javax.servlet.http.HttpSession;
-import java.util.HashMap;
 import java.util.List;
 
 @RestController
 public class CarServiceController {
-
-    HashMap<String, Car> images = new HashMap<>();
-
-    public void populateCars (String name, Integer year, String image, Integer miles) {
-        Car car = new Car(name, year, image, miles);
-        images.put(name, car);
-    }
 
     @Autowired
     CarsRepository cars;
@@ -28,8 +20,9 @@ public class CarServiceController {
 
     @RequestMapping("/cars")
     public List<Car> showCars (HttpSession session) {
+        List<Car> Cars = cars.getCars();
 
-
+        return Cars;
     }
 
 }
